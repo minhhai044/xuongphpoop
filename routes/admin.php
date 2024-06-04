@@ -8,9 +8,11 @@
 //      PUT     -> USER/ID      -> UPDATE ($id)   -> LƯU DỮ LIỆU TỪ FORM CẬP NHẬT VÀO DB
 //      DELETE  -> USER/ID      -> DELETE ($id)   -> XÓA BẢ
 
+use Minhhai\Xuongoop\Controllers\Admin\DashboardController;
 use Minhhai\Xuongoop\Controllers\Admin\UserController;
 
 $router->mount('/admin', function () use ($router) {
+    $router->get('/',               DashboardController::class . '@dashboard');
 
     // CRUD USER
     $router->mount('/users', function () use ($router) {

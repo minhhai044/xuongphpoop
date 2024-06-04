@@ -1,34 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.master')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
+@section('title')
+    Danh sách User
+@endsection
 
-        td,
-        th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-    </style>
-</head>
-
-<body>
-
-    <h2>HTML Table</h2>
+@section('content')
     <a href="{{ url('admin/users/create') }}">create</a>
     @if (isset($_SESSION['status']) && $_SESSION['status'])
         <div class="alert alert-success">
@@ -40,7 +16,7 @@
             unset($_SESSION['msg']);
         @endphp
     @endif
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>ID</th>
@@ -64,13 +40,11 @@
                         <a href="{{ url('admin/users/') . $user['id'] . '/delete' }}"
                             onclick="return confirm('Chắc chắn xóa không?');">delete</a>
                         <a href="{{ url('admin/users/') . $user['id'] . '/edit' }}">Edit</a>
-                    
-                        </td>
+
+                    </td>
                 </tr>
             @endforeach
         </tbody>
 
     </table>
-</body>
-
-</html>
+@endsection
