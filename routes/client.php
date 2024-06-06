@@ -2,6 +2,8 @@
 use Minhhai\Xuongoop\Controllers\Client\AboutController;
 use Minhhai\Xuongoop\Controllers\Client\ContactController;
 use Minhhai\Xuongoop\Controllers\Client\HomeController;
+use Minhhai\Xuongoop\Controllers\Client\LoginController;
+
 //Web có các trang là : 
 //trang chủ
 //giới thiệu
@@ -25,3 +27,6 @@ $router->post('/contact/store',  AboutController::class .'@store');
 
 $router->get('/products',       AboutController::class .'@index');
 $router->get('/products/{id}',  AboutController::class .'@detail');
+
+$router->get('/login',       LoginController::class .'@showFromLogin');
+$router->post('/handle-login',  LoginController::class .'@login');

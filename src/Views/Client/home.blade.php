@@ -10,5 +10,6 @@
 <body>
     <h1>Trang chủ</h1>
     <p>Tên tôi là : {{ $name }}</p>
+    <a href="{{url('login')}}">Login</a>
 </body>
 </html>
